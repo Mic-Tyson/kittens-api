@@ -1,0 +1,12 @@
+<h1>Kittens Index</h1>
+<% if @kittens.empty? %>
+  <p>No kittens found.</p>
+<% else %>
+  <ul>
+    <% @kittens.each do |kitten| %>
+      <li><%= link_to kitten.name, kitten_path(kitten) %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= link_to "Add Kitten Info", new_kitten_path, method: :get %>
