@@ -4,7 +4,10 @@
 <% else %>
   <ul>
     <% @kittens.each do |kitten| %>
-      <li><%= link_to kitten.name, kitten_path(kitten) %></li>
+      <li>
+        <%= link_to kitten.name, kitten_path(kitten) %>
+        <%= button_to "Delete #{kitten.name}'s Info", kitten_path(kitten), method: :delete, data: { confirm: "Are you sure?" } %>
+      </li>
     <% end %>
   </ul>
 <% end %>
